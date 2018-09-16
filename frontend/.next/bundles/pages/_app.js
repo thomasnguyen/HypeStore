@@ -10,49 +10,78 @@ __NEXT_REGISTER_PAGE('/_app', function() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Nav__ = __webpack_require__("./components/Nav.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_link__ = __webpack_require__("./node_modules/next/link.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_next_link__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_styled_components__ = __webpack_require__("./node_modules/styled-components/dist/styled-components.browser.es.js");
 var _jsxFileName = "/Users/thomas/Desktop/HypeStore/frontend/components/Header.js";
 
 // Example of a stateless component
 
 
+
+var Logo = __WEBPACK_IMPORTED_MODULE_3_styled_components__["b" /* default */].h1.withConfig({
+  displayName: "Header__Logo",
+  componentId: "s2cpreo-0"
+})(["font-size:4rem;margin-left:2rem;position:relative;z-index:2;transform:skew(-7deg);a{padding:0.5rem 1rem;background:", ";color:white;transform:uppercase;text-decoration:none;}@media (max-width:1300px){margin:0;text-align:center;}"], function (props) {
+  return props.theme.red;
+});
+var StyledHeader = __WEBPACK_IMPORTED_MODULE_3_styled_components__["b" /* default */].header.withConfig({
+  displayName: "Header__StyledHeader",
+  componentId: "s2cpreo-1"
+})([".bar{border-bottom:10px solid ", ";display:grid;grid-template-columns:auto 1fr;justify-content:space-between;align-items:stretch;@media (max-width:1300px){grid-template-columns:1fr;justify-content:center;}}.sub-bar{display:grid;grid-template-columns:1fr auto;border-bottom:1px solid ", ";}"], function (props) {
+  return props.theme.black;
+}, function (props) {
+  return props.theme.lightgrey;
+});
+
 var Header = function Header() {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(StyledHeader, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5
+      lineNumber: 49
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     className: "bar",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 50
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Logo, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_next_link___default.a, {
+    href: "/",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
-    href: "",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 53
     }
-  }, "Sick Fits"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Nav__["a" /* default */], {
+  }, "Sick Fits"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Nav__["a" /* default */], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 56
     }
   })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     className: "sub-bar",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 58
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 59
     }
   }, "Search")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 61
     }
   }, "Cart"));
 };
@@ -186,16 +215,27 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var MyButton = __WEBPACK_IMPORTED_MODULE_3_styled_components__["a" /* default */].button.withConfig({
-  displayName: "Page__MyButton",
+var theme = {
+  red: '#FF0000',
+  black: '#393939',
+  grey: '#3A3A3A',
+  lightgrey: '#E1E1E1',
+  offWhite: '#EDEDED',
+  maxWidth: '1000px',
+  bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)'
+};
+var StyledPage = __WEBPACK_IMPORTED_MODULE_3_styled_components__["b" /* default */].div.withConfig({
+  displayName: "Page__StyledPage",
   componentId: "s4u7a64-0"
-})(["background:red;font-size:", ";span{font-size:100px;}"], function (props) {
-  return props.huge ? '100px' : '50px';
+})(["background:white;color:", ";"], function (props) {
+  return props.theme.black;
 });
-var BigPoop = __WEBPACK_IMPORTED_MODULE_3_styled_components__["a" /* default */].span.withConfig({
-  displayName: "Page__BigPoop",
+var Inner = __WEBPACK_IMPORTED_MODULE_3_styled_components__["b" /* default */].div.withConfig({
+  displayName: "Page__Inner",
   componentId: "s4u7a64-1"
-})(["font-size:100px;"]);
+})(["max-width:", ";margin:0 auto;padding:2rem;"], function (props) {
+  return props.theme.maxWidth;
+});
 
 var Page =
 /*#__PURE__*/
@@ -211,32 +251,33 @@ function (_Component) {
   _createClass(Page, [{
     key: "render",
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_styled_components__["a" /* ThemeProvider */], {
+        theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 19
+          lineNumber: 30
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(StyledPage, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 31
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_Meta__["a" /* default */], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 20
+          lineNumber: 32
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_Header__["a" /* default */], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 21
+          lineNumber: 33
         }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(MyButton, {
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Inner, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 22
+          lineNumber: 34
         }
-      }, "My Button", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 24
-        }
-      }, "poop")), this.props.children);
+      }, " ", this.props.children)));
     }
   }]);
 
@@ -1660,7 +1701,7 @@ if (false) {
 /* unused harmony export injectGlobal */
 /* unused harmony export isStyledComponent */
 /* unused harmony export consolidateStreamedStyles */
-/* unused harmony export ThemeProvider */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ThemeProvider; });
 /* unused harmony export withTheme */
 /* unused harmony export ServerStyleSheet */
 /* unused harmony export StyleSheetManager */
@@ -3910,7 +3951,7 @@ var injectGlobal = _injectGlobal(stringifyRules, css);
 var styled = _styled(StyledComponent, constructWithOptions);
 
 
-/* harmony default export */ __webpack_exports__["a"] = (styled);
+/* harmony default export */ __webpack_exports__["b"] = (styled);
 //# sourceMappingURL=styled-components.browser.es.js.map
 
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/process/browser.js")))
