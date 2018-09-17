@@ -1,1 +1,6 @@
 # Here we will write the datamodel!
+type User {
+	id: ID! @unique
+	name: String!
+	email: String!
+}
