@@ -95,6 +95,56 @@ function (_Component) {
 
         _this.setState(_defineProperty({}, name, val));
       }
+    }), Object.defineProperty(_assertThisInitialized(_this), "uploadFile", {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: function () {
+        var _value = _asyncToGenerator(
+        /*#__PURE__*/
+        __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee(e) {
+          var files, data, res, file;
+          return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  console.log('uploading file...');
+                  files = e.target.files;
+                  data = new FormData();
+                  data.append('file', files[0]);
+                  data.append('upload_preset', 'hypestore');
+                  _context.next = 7;
+                  return fetch('https://api.cloudinary.com/v1_1/djl91yy92/image/upload', {
+                    method: 'POST',
+                    body: data
+                  });
+
+                case 7:
+                  res = _context.sent;
+                  _context.next = 10;
+                  return res.json();
+
+                case 10:
+                  file = _context.sent;
+                  console.log(file);
+
+                  _this.setState({
+                    image: file.secure_url,
+                    largeImage: file.eager[0].secure_url
+                  });
+
+                case 13:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee, this);
+        }));
+
+        return function value(_x) {
+          return _value.apply(this, arguments);
+        };
+      }()
     }), _temp));
   }
 
@@ -108,7 +158,7 @@ function (_Component) {
         variables: this.state,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 40
+          lineNumber: 60
         }
       }, function (createItem, _ref2) {
         var loading = _ref2.loading,
@@ -119,20 +169,20 @@ function (_Component) {
           function () {
             var _ref3 = _asyncToGenerator(
             /*#__PURE__*/
-            __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee(e) {
+            __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee2(e) {
               var res;
-              return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+              return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
                 while (1) {
-                  switch (_context.prev = _context.next) {
+                  switch (_context2.prev = _context2.next) {
                     case 0:
                       // stop the form from submitting
                       e.preventDefault(); // call mutation
 
-                      _context.next = 3;
+                      _context2.next = 3;
                       return createItem();
 
                     case 3:
-                      res = _context.sent;
+                      res = _context2.sent;
                       // change them to the single item page
                       __WEBPACK_IMPORTED_MODULE_7_next_router___default.a.push({
                         pathname: '/item',
@@ -143,43 +193,60 @@ function (_Component) {
 
                     case 5:
                     case "end":
-                      return _context.stop();
+                      return _context2.stop();
                   }
                 }
-              }, _callee, this);
+              }, _callee2, this);
             }));
 
-            return function (_x) {
+            return function (_x2) {
               return _ref3.apply(this, arguments);
             };
           }(),
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 42
+            lineNumber: 62
           }
         }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("h2", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 55
+            lineNumber: 75
           }
         }, "Sell an Item"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__ErrorMessage__["a" /* default */], {
           error: error,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 56
+            lineNumber: 76
           }
         }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("fieldset", {
           disabled: loading,
           "aria-busy": loading,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 57
+            lineNumber: 77
           }
         }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("label", {
+          htmlFor: "file",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 78
+          }
+        }, "Image", __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("input", {
+          type: "file",
+          id: "file",
+          name: "file",
+          placeholder: "Upload an Image",
+          required: true,
+          onChange: _this2.uploadFile,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 80
+          }
+        })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("label", {
           htmlFor: "title",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 58
+            lineNumber: 89
           }
         }, "Title", __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("input", {
           type: "text",
@@ -191,13 +258,13 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 60
+            lineNumber: 91
           }
         })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("label", {
           htmlFor: "price",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 71
+            lineNumber: 102
           }
         }, "Price", __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("input", {
           type: "number",
@@ -209,13 +276,13 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 73
+            lineNumber: 104
           }
         })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("label", {
           htmlFor: "description",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 84
+            lineNumber: 115
           }
         }, "description", __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("textarea", {
           id: "description",
@@ -226,13 +293,13 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 86
+            lineNumber: 117
           }
         })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("button", {
           type: "submit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 95
+            lineNumber: 126
           }
         }, " Submit")));
       });
