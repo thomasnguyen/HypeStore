@@ -147,8 +147,8 @@ function (_Component) {
       value: {
         title: 'Cool Shoes',
         description: 'fff',
-        image: 'fff',
-        largeImage: 'ssss',
+        image: '',
+        largeImage: '',
         price: 0
       }
     }), Object.defineProperty(_assertThisInitialized(_this), "handleChange", {
@@ -311,11 +311,17 @@ function (_Component) {
             fileName: _jsxFileName,
             lineNumber: 80
           }
+        }), _this2.state.image && __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("img", {
+          src: _this2.state.image,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 88
+          }
         })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("label", {
           htmlFor: "title",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 89
+            lineNumber: 90
           }
         }, "Title", __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("input", {
           type: "text",
@@ -327,13 +333,13 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 91
+            lineNumber: 92
           }
         })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("label", {
           htmlFor: "price",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 102
+            lineNumber: 103
           }
         }, "Price", __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("input", {
           type: "number",
@@ -345,13 +351,13 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 104
+            lineNumber: 105
           }
         })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("label", {
           htmlFor: "description",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 115
+            lineNumber: 116
           }
         }, "description", __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("textarea", {
           id: "description",
@@ -362,13 +368,13 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 117
+            lineNumber: 118
           }
         })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("button", {
           type: "submit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 126
+            lineNumber: 127
           }
         }, " Submit")));
       });

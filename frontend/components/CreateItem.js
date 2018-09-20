@@ -24,8 +24,8 @@ class CreateItem extends Component {
 	state = {
 		title: 'Cool Shoes',
 		description: 'fff',
-		image: 'fff',
-		largeImage: 'ssss',
+		image: '',
+		largeImage: '',
 		price: 0
 	};
 
@@ -85,6 +85,7 @@ class CreateItem extends Component {
 									required
 									onChange={this.uploadFile}
 								/>
+								{this.state.image && <img src={this.state.image} />}
 							</label>
 							<label htmlFor="title">
 								Title
