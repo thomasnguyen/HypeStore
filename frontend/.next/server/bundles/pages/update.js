@@ -152,6 +152,7 @@ DisplayError.propTypes = {
 
 "use strict";
 /* unused harmony export UPDATE_ITEM_MUTATION */
+/* unused harmony export SINGLE_ITEM_QUERY */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__ = __webpack_require__("@babel/runtime/regenerator");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("react");
@@ -168,7 +169,8 @@ DisplayError.propTypes = {
 
 var _jsxFileName = "/Users/thomas/Desktop/HypeStore/frontend/components/UpdateItem.js";
 
-var _templateObject = /*#__PURE__*/ _taggedTemplateLiteral(["\n\tmutation UPDATE_ITEM_MUTATION(\n\t\t$title: String!\n\t\t$description: String!\n\t\t$image: String\n\t\t$largeImage: String\n\t\t$price: Int!\n\t) {\n\t\tupdateItem(title: $title, description: $description, image: $image, largeImage: $largeImage, price: $price) {\n\t\t\tid\n\t\t}\n\t}\n"]);
+var _templateObject = /*#__PURE__*/ _taggedTemplateLiteral(["\n\tquery SINGLE_ITEM_QUERY($id: ID!) {\n\t\titem(where: { id: $id }) {\n\t\t\tid\n\t\t\ttitle\n\t\t\tdescription\n\t\t\tprice\n\t\t}\n\t}\n"]),
+    _templateObject2 = /*#__PURE__*/ _taggedTemplateLiteral(["\n\tmutation UPDATE_ITEM_MUTATION($title: String!, $description: String!, $price: Int!) {\n\t\tupdateItem(title: $title, description: $description, price: $price) {\n\t\t\tid\n\t\t\ttitle\n\t\t\tdescription\n\t\t\tprice\n\t\t}\n\t}\n"]);
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -197,7 +199,8 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var UPDATE_ITEM_MUTATION = __WEBPACK_IMPORTED_MODULE_3_graphql_tag___default()(_templateObject);
+var SINGLE_ITEM_QUERY = __WEBPACK_IMPORTED_MODULE_3_graphql_tag___default()(_templateObject);
+var UPDATE_ITEM_MUTATION = __WEBPACK_IMPORTED_MODULE_3_graphql_tag___default()(_templateObject2);
 
 var UpdateItem =
 /*#__PURE__*/
@@ -219,13 +222,7 @@ function (_Component) {
       configurable: true,
       enumerable: true,
       writable: true,
-      value: {
-        title: 'Cool Shoes',
-        description: 'fff',
-        image: '',
-        largeImage: '',
-        price: 0
-      }
+      value: {}
     }), Object.defineProperty(_assertThisInitialized(_this), "handleChange", {
       configurable: true,
       enumerable: true,
@@ -247,138 +244,157 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_apollo__["Mutation"], {
-        mutation: UPDATE_ITEM_MUTATION,
-        variables: this.state,
+      return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_apollo__["Query"], {
+        query: SINGLE_ITEM_QUERY,
+        variables: {
+          id: this.props.id
+        },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 40
+          lineNumber: 42
         }
-      }, function (createItem, _ref2) {
-        var loading = _ref2.loading,
-            error = _ref2.error;
-        return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__styles_Form__["a" /* default */], {
-          onSubmit:
-          /*#__PURE__*/
-          function () {
-            var _ref3 = _asyncToGenerator(
+      }, function (_ref2) {
+        var data = _ref2.data,
+            loading = _ref2.loading;
+        if (loading) return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("p", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 44
+          }
+        }, "Loading....");
+        return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_apollo__["Mutation"], {
+          mutation: UPDATE_ITEM_MUTATION,
+          variables: _this2.state,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 46
+          }
+        }, function (updateItem, _ref3) {
+          var loading = _ref3.loading,
+              error = _ref3.error;
+          return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__styles_Form__["a" /* default */], {
+            onSubmit:
             /*#__PURE__*/
-            __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee(e) {
-              var res;
-              return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-                while (1) {
-                  switch (_context.prev = _context.next) {
-                    case 0:
-                      // stop the form from submitting
-                      e.preventDefault(); // call mutation
+            function () {
+              var _ref4 = _asyncToGenerator(
+              /*#__PURE__*/
+              __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee(e) {
+                var res;
+                return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                  while (1) {
+                    switch (_context.prev = _context.next) {
+                      case 0:
+                        // stop the form from submitting
+                        e.preventDefault(); // call mutation
 
-                      _context.next = 3;
-                      return createItem();
+                        _context.next = 3;
+                        return createItem();
 
-                    case 3:
-                      res = _context.sent;
-                      // change them to the single item page
-                      __WEBPACK_IMPORTED_MODULE_7_next_router___default.a.push({
-                        pathname: '/item',
-                        query: {
-                          id: res.data.createItem.id
-                        }
-                      });
+                      case 3:
+                        res = _context.sent;
+                        // change them to the single item page
+                        __WEBPACK_IMPORTED_MODULE_7_next_router___default.a.push({
+                          pathname: '/item',
+                          query: {
+                            id: res.data.createItem.id
+                          }
+                        });
 
-                    case 5:
-                    case "end":
-                      return _context.stop();
+                      case 5:
+                      case "end":
+                        return _context.stop();
+                    }
                   }
-                }
-              }, _callee, this);
-            }));
+                }, _callee, this);
+              }));
 
-            return function (_x) {
-              return _ref3.apply(this, arguments);
-            };
-          }(),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 42
-          }
-        }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("h2", {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 55
-          }
-        }, "Sell an Item"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__ErrorMessage__["a" /* default */], {
-          error: error,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 56
-          }
-        }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("fieldset", {
-          disabled: loading,
-          "aria-busy": loading,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 57
-          }
-        }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("label", {
-          htmlFor: "title",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 58
-          }
-        }, "Title", __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("input", {
-          type: "text",
-          id: "title",
-          name: "title",
-          placeholder: "Title",
-          required: true,
-          value: _this2.state.title,
-          onChange: _this2.handleChange,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 60
-          }
-        })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("label", {
-          htmlFor: "price",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 71
-          }
-        }, "Price", __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("input", {
-          type: "number",
-          id: "price",
-          name: "price",
-          placeholder: "price",
-          required: true,
-          value: _this2.state.price,
-          onChange: _this2.handleChange,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 73
-          }
-        })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("label", {
-          htmlFor: "description",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 84
-          }
-        }, "description", __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("textarea", {
-          id: "description",
-          name: "description",
-          placeholder: "Enter a description",
-          required: true,
-          value: _this2.state.description,
-          onChange: _this2.handleChange,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 86
-          }
-        })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("button", {
-          type: "submit",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 95
-          }
-        }, " Submit")));
+              return function (_x) {
+                return _ref4.apply(this, arguments);
+              };
+            }(),
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 48
+            }
+          }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("h2", {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 61
+            }
+          }, "Sell an Item"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__ErrorMessage__["a" /* default */], {
+            error: error,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 62
+            }
+          }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("fieldset", {
+            disabled: loading,
+            "aria-busy": loading,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 63
+            }
+          }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("label", {
+            htmlFor: "title",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 64
+            }
+          }, "Title", __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("input", {
+            type: "text",
+            id: "title",
+            name: "title",
+            placeholder: "Title",
+            required: true,
+            defaultValue: data.item.title,
+            onChange: _this2.handleChange,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 66
+            }
+          })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("label", {
+            htmlFor: "price",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 77
+            }
+          }, "Price", __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("input", {
+            type: "number",
+            id: "price",
+            name: "price",
+            placeholder: "price",
+            required: true,
+            value: data.item.price,
+            onChange: _this2.handleChange,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 79
+            }
+          })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("label", {
+            htmlFor: "description",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 90
+            }
+          }, "description", __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("textarea", {
+            id: "description",
+            name: "description",
+            placeholder: "Enter a description",
+            required: true,
+            value: data.item.description,
+            onChange: _this2.handleChange,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 92
+            }
+          })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("button", {
+            type: "submit",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 101
+            }
+          }, " Save Changes")));
+        });
       });
     }
   }]);
@@ -387,6 +403,7 @@ function (_Component) {
 }(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]);
 
 /* harmony default export */ __webpack_exports__["a"] = (UpdateItem);
+
 
 
 /***/ }),
