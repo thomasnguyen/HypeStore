@@ -155,7 +155,7 @@ Object.defineProperty(componentName, "propTypes", {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Items; });
+/* unused harmony export ALL_ITEMS_QUERY */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_apollo__ = __webpack_require__("./node_modules/react-apollo/react-apollo.browser.umd.js");
@@ -264,6 +264,7 @@ function (_Component) {
   return Items;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
+/* harmony default export */ __webpack_exports__["a"] = (Items);
 
 
 /***/ }),
@@ -11974,7 +11975,7 @@ if (false) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* unused harmony export css */
-/* unused harmony export keyframes */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return keyframes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return injectGlobal; });
 /* unused harmony export isStyledComponent */
 /* unused harmony export consolidateStreamedStyles */

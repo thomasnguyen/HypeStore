@@ -224,7 +224,7 @@ Object.defineProperty(componentName, "propTypes", {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Items; });
+/* unused harmony export ALL_ITEMS_QUERY */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_apollo__ = __webpack_require__("react-apollo");
@@ -334,6 +334,7 @@ function (_Component) {
   return Items;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
+/* harmony default export */ __webpack_exports__["a"] = (Items);
 
 
 /***/ }),
