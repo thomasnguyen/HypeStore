@@ -72,6 +72,154 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./components/Item.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return componentName; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__("prop-types");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_link__ = __webpack_require__("next/link");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_next_link__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_formatMoney__ = __webpack_require__("./lib/formatMoney.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__styles_Title__ = __webpack_require__("./components/styles/Title.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__styles_ItemStyles__ = __webpack_require__("./components/styles/ItemStyles.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__styles_PriceTag__ = __webpack_require__("./components/styles/PriceTag.js");
+var _jsxFileName = "/Users/thomas/Desktop/HypeStore/frontend/components/Item.js";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+
+
+var componentName =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(componentName, _Component);
+
+  function componentName() {
+    _classCallCheck(this, componentName);
+
+    return _possibleConstructorReturn(this, (componentName.__proto__ || Object.getPrototypeOf(componentName)).apply(this, arguments));
+  }
+
+  _createClass(componentName, [{
+    key: "render",
+    value: function render() {
+      var item = this.props.item;
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__styles_ItemStyles__["a" /* default */], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 18
+        }
+      }, item.largeImage && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+        src: item.largeImage,
+        alt: item.title,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 19
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__styles_Title__["a" /* default */], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 20
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_next_link___default.a, {
+        href: {
+          pathname: '/item',
+          query: {
+            id: item.id
+          }
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 21
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 22
+        }
+      }, item.title))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__styles_PriceTag__["a" /* default */], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 25
+        }
+      }, Object(__WEBPACK_IMPORTED_MODULE_3__lib_formatMoney__["a" /* default */])(item.price)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 26
+        }
+      }, item.description), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "buttonList",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_next_link___default.a, {
+        href: {
+          pathname: 'update',
+          query: {
+            id: item.id
+          }
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29
+        }
+      }, " Edit")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 31
+        }
+      }, " Add to Cart"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 32
+        }
+      }, "Delete add")));
+    }
+  }]);
+
+  return componentName;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+Object.defineProperty(componentName, "propTypes", {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  value: {
+    item: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object.isRequired
+  }
+});
+
+
+/***/ }),
+
 /***/ "./components/Items.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -85,6 +233,7 @@ module.exports =
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_graphql_tag___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_graphql_tag__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_styled_components__ = __webpack_require__("styled-components");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_styled_components__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Item__ = __webpack_require__("./components/Item.js");
 var _jsxFileName = "/Users/thomas/Desktop/HypeStore/frontend/components/Items.js";
 
 var _templateObject = /*#__PURE__*/ _taggedTemplateLiteral(["\n\tquery ALL_ITEMS_QUERY {\n\t\titems {\n\t\t\tid\n\t\t\ttitle\n\t\t\tprice\n\t\t\tdescription\n\t\t\tlargeImage\n\t\t}\n\t}\n"]);
@@ -104,6 +253,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 
 
 
@@ -135,17 +285,12 @@ function (_Component) {
   _createClass(Items, [{
     key: "render",
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 32
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Center, {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 33
         }
-      }, " Items"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_apollo__["Query"], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_apollo__["Query"], {
         query: ALL_ITEMS_QUERY,
         __source: {
           fileName: _jsxFileName,
@@ -173,12 +318,14 @@ function (_Component) {
             lineNumber: 39
           }
         }, data.items.map(function (item) {
-          return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+          return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Item__["a" /* default */], {
+            key: item.id,
+            item: item,
             __source: {
               fileName: _jsxFileName,
               lineNumber: 41
             }
-          }, item.title);
+          });
         }));
       }));
     }
@@ -188,6 +335,81 @@ function (_Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
 
+
+/***/ }),
+
+/***/ "./components/styles/ItemStyles.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_styled_components__ = __webpack_require__("styled-components");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_styled_components__);
+
+var Item = __WEBPACK_IMPORTED_MODULE_0_styled_components___default.a.div.withConfig({
+  displayName: "ItemStyles__Item",
+  componentId: "s16pk14u-0"
+})(["background:white;border:1px solid ", ";box-shadow:", ";position:relative;display:flex;flex-direction:column;img{width:100%;height:400px;object-fit:cover;}p{font-size:12px;line-height:2;font-weight:300;flex-grow:1;padding:0 3rem;font-size:1.5rem;}.buttonList{display:grid;width:100%;border-top:1px solid ", ";grid-template-columns:repeat(auto-fit,minmax(100px,1fr));grid-gap:1px;background:", ";& > *{background:white;border:0;font-size:1rem;padding:1rem;}}"], function (props) {
+  return props.theme.offWhite;
+}, function (props) {
+  return props.theme.bs;
+}, function (props) {
+  return props.theme.lightgrey;
+}, function (props) {
+  return props.theme.lightgrey;
+});
+/* harmony default export */ __webpack_exports__["a"] = (Item);
+
+/***/ }),
+
+/***/ "./components/styles/PriceTag.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_styled_components__ = __webpack_require__("styled-components");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_styled_components__);
+
+var PriceTag = __WEBPACK_IMPORTED_MODULE_0_styled_components___default.a.span.withConfig({
+  displayName: "PriceTag",
+  componentId: "nwbk6t-0"
+})(["background:", ";transform:rotate(3deg);color:white;font-weight:600;padding:5px;line-height:1;font-size:3rem;display:inline-block;position:absolute;top:-3px;right:-3px;"], function (props) {
+  return props.theme.red;
+});
+/* harmony default export */ __webpack_exports__["a"] = (PriceTag);
+
+/***/ }),
+
+/***/ "./components/styles/Title.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_styled_components__ = __webpack_require__("styled-components");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_styled_components__);
+
+var Title = __WEBPACK_IMPORTED_MODULE_0_styled_components___default.a.h3.withConfig({
+  displayName: "Title",
+  componentId: "s16nq74k-0"
+})(["margin:0 1rem;text-align:center;transform:skew(-5deg) rotate(-1deg);margin-top:-3rem;text-shadow:2px 2px 0 rgba(0,0,0,0.1);a{background:", ";display:inline;line-height:1.3;font-size:4rem;text-align:center;color:white;padding:0 1rem;}"], function (props) {
+  return props.theme.red;
+});
+/* harmony default export */ __webpack_exports__["a"] = (Title);
+
+/***/ }),
+
+/***/ "./lib/formatMoney.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = (function (amount) {
+  var options = {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2
+  }; // if its a whole, dollar amount, leave off the .00
+
+  if (amount % 100 === 0) options.minimumFractionDigits = 0;
+  var formatter = new Intl.NumberFormat('en-US', options);
+  return formatter.format(amount / 100);
+});
 
 /***/ }),
 
@@ -243,6 +465,20 @@ module.exports = __webpack_require__("./pages/items.js");
 /***/ (function(module, exports) {
 
 module.exports = require("graphql-tag");
+
+/***/ }),
+
+/***/ "next/link":
+/***/ (function(module, exports) {
+
+module.exports = require("next/link");
+
+/***/ }),
+
+/***/ "prop-types":
+/***/ (function(module, exports) {
+
+module.exports = require("prop-types");
 
 /***/ }),
 
