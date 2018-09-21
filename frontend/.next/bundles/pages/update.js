@@ -100,9 +100,11 @@ DisplayError.propTypes = {
 var _jsxFileName = "/Users/thomas/Desktop/HypeStore/frontend/components/UpdateItem.js";
 
 var _templateObject = /*#__PURE__*/ _taggedTemplateLiteral(["\n\tquery SINGLE_ITEM_QUERY($id: ID!) {\n\t\titem(where: { id: $id }) {\n\t\t\tid\n\t\t\ttitle\n\t\t\tdescription\n\t\t\tprice\n\t\t}\n\t}\n"]),
-    _templateObject2 = /*#__PURE__*/ _taggedTemplateLiteral(["\n\tmutation UPDATE_ITEM_MUTATION($title: String!, $description: String!, $price: Int!) {\n\t\tupdateItem(title: $title, description: $description, price: $price) {\n\t\t\tid\n\t\t\ttitle\n\t\t\tdescription\n\t\t\tprice\n\t\t}\n\t}\n"]);
+    _templateObject2 = /*#__PURE__*/ _taggedTemplateLiteral(["\n\tmutation UPDATE_ITEM_MUTATION($id: ID!, $title: String, $description: String, $price: Int) {\n\t\tupdateItem(id: $id, title: $title, description: $description, price: $price) {\n\t\t\tid\n\t\t\ttitle\n\t\t\tdescription\n\t\t\tprice\n\t\t}\n\t}\n"]);
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } } function _next(value) { step("next", value); } function _throw(err) { step("throw", err); } _next(); }); }; }
 
@@ -166,6 +168,44 @@ function (_Component) {
 
         _this.setState(_defineProperty({}, name, val));
       }
+    }), Object.defineProperty(_assertThisInitialized(_this), "updateItem", {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: function () {
+        var _value = _asyncToGenerator(
+        /*#__PURE__*/
+        __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee(e, updateItemMutation) {
+          var res;
+          return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  e.preventDefault();
+                  console.log('Updating Item!');
+                  console.log(_this.state);
+                  _context.next = 5;
+                  return updateItemMutation({
+                    variables: _objectSpread({
+                      id: _this.props.id
+                    }, _this.state)
+                  });
+
+                case 5:
+                  res = _context.sent;
+
+                case 6:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee, this);
+        }));
+
+        return function value(_x, _x2) {
+          return _value.apply(this, arguments);
+        };
+      }()
     }), _temp));
   }
 
@@ -181,7 +221,7 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 42
+          lineNumber: 60
         }
       }, function (_ref2) {
         var data = _ref2.data,
@@ -189,86 +229,56 @@ function (_Component) {
         if (loading) return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 44
+            lineNumber: 62
           }
         }, "Loading....");
+        if (!data.item) return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("p", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 63
+          }
+        }, "No worky! for ", _this2.props.id);
         return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_apollo__["Mutation"], {
           mutation: UPDATE_ITEM_MUTATION,
           variables: _this2.state,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 46
+            lineNumber: 65
           }
         }, function (updateItem, _ref3) {
           var loading = _ref3.loading,
               error = _ref3.error;
           return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__styles_Form__["a" /* default */], {
-            onSubmit:
-            /*#__PURE__*/
-            function () {
-              var _ref4 = _asyncToGenerator(
-              /*#__PURE__*/
-              __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee(e) {
-                var res;
-                return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-                  while (1) {
-                    switch (_context.prev = _context.next) {
-                      case 0:
-                        // stop the form from submitting
-                        e.preventDefault(); // call mutation
-
-                        _context.next = 3;
-                        return createItem();
-
-                      case 3:
-                        res = _context.sent;
-                        // change them to the single item page
-                        __WEBPACK_IMPORTED_MODULE_7_next_router___default.a.push({
-                          pathname: '/item',
-                          query: {
-                            id: res.data.createItem.id
-                          }
-                        });
-
-                      case 5:
-                      case "end":
-                        return _context.stop();
-                    }
-                  }
-                }, _callee, this);
-              }));
-
-              return function (_x) {
-                return _ref4.apply(this, arguments);
-              };
-            }(),
+            onSubmit: function onSubmit(e) {
+              return _this2.updateItem(e, updateItem);
+            },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 48
+              lineNumber: 67
             }
           }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("h2", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 61
+              lineNumber: 68
             }
           }, "Sell an Item"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__ErrorMessage__["a" /* default */], {
             error: error,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 62
+              lineNumber: 69
             }
           }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("fieldset", {
             disabled: loading,
             "aria-busy": loading,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 63
+              lineNumber: 70
             }
           }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("label", {
             htmlFor: "title",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 64
+              lineNumber: 71
             }
           }, "Title", __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("input", {
             type: "text",
@@ -280,13 +290,13 @@ function (_Component) {
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 66
+              lineNumber: 73
             }
           })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("label", {
             htmlFor: "price",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 77
+              lineNumber: 84
             }
           }, "Price", __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("input", {
             type: "number",
@@ -294,34 +304,34 @@ function (_Component) {
             name: "price",
             placeholder: "price",
             required: true,
-            value: data.item.price,
+            defaultValue: data.item.price,
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 79
+              lineNumber: 86
             }
           })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("label", {
             htmlFor: "description",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 90
+              lineNumber: 97
             }
           }, "description", __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("textarea", {
             id: "description",
             name: "description",
             placeholder: "Enter a description",
             required: true,
-            value: data.item.description,
+            defaultValue: data.item.description,
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 92
+              lineNumber: 99
             }
           })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("button", {
             type: "submit",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 101
+              lineNumber: 108
             }
           }, " Save Changes")));
         });

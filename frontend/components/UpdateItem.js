@@ -18,8 +18,8 @@ const SINGLE_ITEM_QUERY = gql`
 `;
 
 const UPDATE_ITEM_MUTATION = gql`
-	mutation UPDATE_ITEM_MUTATION($title: String!, $description: String!, $price: Int!) {
-		updateItem(title: $title, description: $description, price: $price) {
+	mutation UPDATE_ITEM_MUTATION($id: ID!, $title: String, $description: String, $price: Int) {
+		updateItem(id: $id, title: $title, description: $description, price: $price) {
 			id
 			title
 			description
@@ -37,27 +37,34 @@ class UpdateItem extends Component {
 		this.setState({ [name]: val });
 	};
 
+	updateItem = async (e, updateItemMutation) => {
+		e.preventDefault();
+		console.log('Updating Item!');
+		console.log(this.state);
+		const res = await updateItemMutation({
+			variables: {
+				id: this.props.id,
+				...this.state
+			}
+		});
+
+		/*
+		Router.push({
+			pathname: '/'
+        });
+        */
+	};
+
 	render() {
 		return (
 			<Query query={SINGLE_ITEM_QUERY} variables={{ id: this.props.id }}>
 				{({ data, loading }) => {
 					if (loading) return <p>Loading....</p>;
+					if (!data.item) return <p>No worky! for {this.props.id}</p>;
 					return (
 						<Mutation mutation={UPDATE_ITEM_MUTATION} variables={this.state}>
 							{(updateItem, { loading, error }) => (
-								<Form
-									onSubmit={async (e) => {
-										// stop the form from submitting
-										e.preventDefault();
-										// call mutation
-										const res = await createItem();
-										// change them to the single item page
-										Router.push({
-											pathname: '/item',
-											query: { id: res.data.createItem.id }
-										});
-									}}
-								>
+								<Form onSubmit={(e) => this.updateItem(e, updateItem)}>
 									<h2>Sell an Item</h2>
 									<Error error={error} />
 									<fieldset disabled={loading} aria-busy={loading}>
@@ -82,7 +89,7 @@ class UpdateItem extends Component {
 												name="price"
 												placeholder="price"
 												required
-												value={data.item.price}
+												defaultValue={data.item.price}
 												onChange={this.handleChange}
 											/>
 										</label>
@@ -94,7 +101,7 @@ class UpdateItem extends Component {
 												name="description"
 												placeholder="Enter a description"
 												required
-												value={data.item.description}
+												defaultValue={data.item.description}
 												onChange={this.handleChange}
 											/>
 										</label>
