@@ -28,6 +28,14 @@ const Mutations = {
 			},
 			info
 		);
+	},
+
+	async deleteItem(parent, args, ctx, info) {
+		const where = { id: args.id };
+		// 1. find the item
+		const item = await ctx.db.query.item({ where });
+		// 2. check if they own that item or have the permissions
+		// 3. Delete it!
 	}
 };
 
