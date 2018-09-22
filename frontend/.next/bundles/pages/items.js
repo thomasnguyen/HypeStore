@@ -1,7 +1,7 @@
 module.exports =
 __NEXT_REGISTER_PAGE('/items', function() {
           var comp =
-      webpackJsonp([5],{
+      webpackJsonp([8],{
 
 /***/ "./components/DeleteItem.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -12094,7 +12094,7 @@ if (false) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* unused harmony export css */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return keyframes; });
+/* unused harmony export keyframes */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return injectGlobal; });
 /* unused harmony export isStyledComponent */
 /* unused harmony export consolidateStreamedStyles */
@@ -16777,7 +16777,6 @@ if (hasSymbols()) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Items__ = __webpack_require__("./components/Items.js");
@@ -16799,7 +16798,7 @@ var Home = function Home(props) {
   }));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Home);
+/* harmony default export */ __webpack_exports__["a"] = (Home);
     (function (Component, route) {
       if(!Component) return
       if (false) return
@@ -16829,7 +16828,7 @@ var Home = function Home(props) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index__ = __webpack_require__("./pages/index.js");
 
-/* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_0__index__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_0__index__["a" /* default */]);
     (function (Component, route) {
       if(!Component) return
       if (false) return
@@ -16852,7 +16851,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 4:
+/***/ 8:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/items.js");
@@ -16860,7 +16859,7 @@ module.exports = __webpack_require__("./pages/items.js");
 
 /***/ })
 
-},[4])
+},[8])
           return { page: comp.default }
         })
       ;
